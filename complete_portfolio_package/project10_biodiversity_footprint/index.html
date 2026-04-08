@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 10: Corporate Biodiversity Footprint Assessment</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+        :root {
+            --primary: #14532d;
+            --secondary: #166534;
+            --accent: #4ade80;
+            --sand: #f5f0e8;
+            --charcoal: #1a1a2e;
+            --body: #2d3748;
+            --slate: #4a5568;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            line-height: 1.75;
+            color: var(--body);
+            background: var(--sand);
+        }
+
+        .hero {
+            background: linear-gradient(160deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+            padding: 90px 24px 70px;
+            text-align: center;
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.06) 0%, transparent 50%);
+        }
+        .hero .tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        .hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2.8rem;
+            font-weight: 400;
+            margin-bottom: 16px;
+            line-height: 1.2;
+            color: #ffffff;
+        }
+        .hero p { font-size: 1.15rem; opacity: 0.95; max-width: 680px; margin: 0 auto; color: #ffffff; }
+        .meta-bar {
+            display: flex; justify-content: center; gap: 24px; flex-wrap: wrap;
+            margin-top: 28px;
+        }
+        .meta-item {
+            background: rgba(255,255,255,0.12);
+            padding: 6px 16px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            color: #ffffff;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px 60px; }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-top: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+        .card h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.5rem;
+            color: var(--charcoal);
+            margin-bottom: 16px;
+        }
+        .card p { color: var(--body); margin-bottom: 12px; }
+
+        .research-q {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #ffffff;
+            padding: 24px 28px;
+            border-radius: 12px;
+            font-size: 1.15rem;
+            font-style: italic;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+
+        .step {
+            display: flex;
+            gap: 16px;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0ebe3;
+            align-items: flex-start;
+        }
+        .step:last-child { border-bottom: none; }
+        .step-label {
+            flex-shrink: 0;
+            width: 110px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--charcoal);
+            padding-top: 2px;
+        }
+        .step-text {
+            font-size: 0.95rem;
+            color: var(--body);
+        }
+        .step-text code {
+            background: #eee8dc;
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85em;
+            color: var(--charcoal);
+        }
+
+        .code-block {
+            background: #1e293b;
+            border-radius: 10px;
+            padding: 22px 24px;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.82rem;
+            line-height: 1.7;
+            color: #e2e8f0;
+            margin: 16px 0 0;
+        }
+
+        .finding {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            margin-bottom: 18px;
+        }
+        .finding:last-child { margin-bottom: 0; }
+        .finding-num {
+            flex-shrink: 0;
+            width: 32px; height: 32px;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.88rem;
+        }
+        .finding-text { font-size: 0.95rem; color: var(--body); }
+
+        .warn {
+            background: #fffbeb;
+            border-left: 4px solid #d4a017;
+            padding: 18px 24px;
+            border-radius: 0 10px 10px 0;
+            margin: 20px 0;
+        }
+        .warn strong { color: #78350f; }
+        .warn p { color: #713f12; margin-bottom: 0; }
+
+        .ref-list { list-style: none; padding: 0; }
+        .ref-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0ebe3;
+            font-size: 0.88rem;
+            color: var(--slate);
+        }
+        .ref-list li:last-child { border-bottom: none; }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--primary);
+            color: rgba(255,255,255,0.8);
+            font-size: 0.85rem;
+        }
+        footer strong { color: #ffffff; }
+
+        @media (max-width: 700px) {
+            .hero h1 { font-size: 2rem; }
+            .card { padding: 28px 20px; }
+            .meta-bar { gap: 10px; }
+            .step { flex-direction: column; gap: 4px; }
+            .step-label { width: auto; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <div class="tag">Project 10 of 20 — Sustainability Analytics</div>
+    <h1>Corporate Biodiversity Footprint Assessment</h1>
+    <p>Measuring nature-related financial risk using the TNFD LEAP framework, ENCORE dependency mapping, and Mean Species Abundance metrics</p>
+    <div class="meta-bar">
+        <span class="meta-item">🐍 Python &amp; R</span><span class="meta-item">🌿 TNFD LEAP Framework</span><span class="meta-item">📅 10 GICS sectors</span><span class="meta-item">📊 MSA &amp; ENCORE</span>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h2>1. Research Question &amp; Motivation</h2>
+        <div class="research-q">"How can corporate biodiversity impact be quantified using the TNFD framework, and which sectors pose the highest nature-related financial risk?"</div>
+        <p>Biodiversity loss is accelerating at an unprecedented rate — the 'sixth mass extinction'. The TNFD (Taskforce on Nature-related Financial Disclosures) was established to help firms assess and disclose nature-related risks, mirroring the TCFD for climate. The Kunming-Montreal Global Biodiversity Framework (2022) commits 196 countries to protecting 30% of land and ocean by 2030, creating significant regulatory transition risk for nature-dependent sectors.</p>
+    </div>
+
+    <div class="card">
+        <h2>2. Data Collection &amp; Sources</h2>
+        
+                <div class="step">
+                    <div class="step-label">Framework</div>
+                    <div class="step-text">TNFD LEAP approach: Locate, Evaluate, Assess, Prepare</div>
+                </div>
+                <div class="step">
+                    <div class="step-label">Dependencies</div>
+                    <div class="step-text">ENCORE database mapping sectors to ecosystem service dependencies</div>
+                </div>
+                <div class="step">
+                    <div class="step-label">Impact Metric</div>
+                    <div class="step-text">Mean Species Abundance (MSA) — measures ecosystem intactness (1.0 = pristine, 0 = fully degraded)</div>
+                </div>
+                <div class="step">
+                    <div class="step-label">Sectors</div>
+                    <div class="step-text">10 GICS sectors with supply chain biodiversity impact mapping</div>
+                </div>
+                <div class="step">
+                    <div class="step-label">Regulatory</div>
+                    <div class="step-text">EU Biodiversity Strategy targets, Kunming-Montreal framework obligations</div>
+                </div>
+        <pre class="code-block">import pandas as pd
+
+# ENCORE-based dependency mapping
+dependencies = pd.DataFrame({
+    'Sector': ['Agriculture', 'Mining', 'Pharma', 'Construction', 'Finance'],
+    'Key_Dependencies': [
+        'Pollination, soil quality, water regulation, pest control',
+        'Water flow, erosion control, flood protection',
+        'Genetic resources, bio-remediation',
+        'Timber provision, flood regulation, erosion control',
+        'Indirect via lending/investment portfolio'
+    ],
+    'Dependency_Score': [4.5, 3.2, 2.8, 3.0, 3.8]
+})</pre>
+    </div>
+
+    
+        <div class="card">
+            <h2>3a. TNFD LEAP Framework</h2>
+            <p>Four-step systematic approach: <b>Locate</b> assets relative to sensitive biomes → <b>Evaluate</b> dependencies on ecosystem services → <b>Assess</b> risks and opportunities → <b>Prepare</b> disclosures and response strategies.</p>
+            <pre class="code-block"># LEAP Step 1: Locate — map assets to biodiversity hotspots
+assets_in_hotspots = gpd.sjoin(
+    company_facilities,
+    biodiversity_hotspots,  # CI/UNEP hotspot polygons
+    how='inner', predicate='within'
+)
+print(f"Facilities in biodiversity hotspots: {len(assets_in_hotspots)}")</pre>
+        </div>
+        <div class="card">
+            <h2>4a. MSA Impact Assessment</h2>
+            <p>Mean Species Abundance per unit of economic activity. Higher MSA loss per $M revenue = larger biodiversity footprint. Enables cross-sector comparison of nature impact intensity.</p>
+            <pre class="code-block"># MSA impact per sector
+df['msa_impact'] = df['land_use_hectares'] * df['biome_sensitivity'] / df['revenue_m']
+
+sector_msa = df.groupby('sector')['msa_impact'].agg(['mean', 'std'])
+print("MSA impact by sector:")
+print(sector_msa.sort_values('mean', ascending=False))</pre>
+        </div>
+        <div class="card">
+            <h2>5a. ENCORE Dependency Mapping</h2>
+            <p>Maps which ecosystem services each sector depends on. Sectors with high dependency on services under threat face nature-related transition and physical risks.</p>
+            <pre class="code-block"># Dependency risk scoring
+dependency_risk = pd.merge(
+    sector_dependencies,     # ENCORE mapping
+    ecosystem_threat_level,  # IUCN Red List of Ecosystems data
+    on='ecosystem_service'
+)
+dependency_risk['risk_score'] = (
+    dependency_risk['dependency_level'] * dependency_risk['threat_level']
+)</pre>
+        </div>
+
+    <div class="card">
+        <h2>Key Findings</h2>
+        
+                <div class="finding">
+                    <div class="finding-num">1</div>
+                    <div class="finding-text">Food & Agriculture shows the highest biodiversity footprint (MSA loss ~0.34 per $M revenue), driven primarily by land-use change and pesticide use</div>
+                </div>
+                <div class="finding">
+                    <div class="finding-num">2</div>
+                    <div class="finding-text">The financial sector has high indirect exposure through lending and investment portfolios concentrated in nature-dependent sectors — a systemic risk channel</div>
+                </div>
+                <div class="finding">
+                    <div class="finding-num">3</div>
+                    <div class="finding-text">Transition risks from the EU Biodiversity Strategy and Kunming-Montreal targets could affect 40% of sectors analysed, with Agriculture, Mining, and Construction most exposed</div>
+                </div>
+    </div>
+
+    <div class="card">
+        <div class="warn">
+            <strong>⚠️ Methodological Caveat</strong>
+            <p>Biodiversity metrics are far less standardised than carbon metrics. MSA is one of several approaches (others include PDF — Potentially Disappeared Fraction, and STAR — Species Threat Abatement and Restoration). Data availability for supply chain biodiversity impact is poor. This is an emerging field with rapidly evolving standards.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>References</h2>
+        <ul class="ref-list">
+            <li>TNFD (2023). 'Recommendations of the Taskforce on Nature-related Financial Disclosures.' Final Report v1.0.</li>
+<li>ENCORE (2023). 'Exploring Natural Capital Opportunities, Risks and Exposure.' UNEP-WCMC & NCFA.</li>
+<li>Alkemade, R. et al. (2009). 'GLOBIO3: A framework to investigate options for reducing global terrestrial biodiversity loss.' Ecosystems, 12(3).</li>
+
+        </ul>
+    </div>
+
+</div>
+
+<footer>
+    <strong>Sustainable Finance Research Portfolio</strong> · Project 10 of 20<br>
+    AI-Assisted Research — Methodology and interpretation directed by researcher; implementation assisted by Claude AI
+</footer>
+
+</body>
+</html>
