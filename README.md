@@ -10,26 +10,26 @@ Each project follows a complete research workflow: formulating a research questi
 
 | # | Project | Category | Methods | Languages |
 |---|---------|----------|---------|-----------|
-| 1 | [Volatility Dynamics of Green vs Brown Assets](https://USERNAME.github.io/project1_volatility_green_brown/) | Financial Econometrics | GARCH(1,1), GJR-GARCH, rolling forecasts | Python, R |
-| 2 | [ESG Scores and Financial Performance](https://USERNAME.github.io/project2_esg_panel_regression/) | Financial Econometrics | Panel FE/RE, Hausman test, clustered SEs | Python, Stata, R |
-| 3 | [Green Factor Premium Analysis](https://USERNAME.github.io/project3_fama_french_green/) | Financial Econometrics | Fama-French 3 & 5-factor, GRS test | Python, R |
-| 4 | [Cointegration of Clean & Fossil Energy](https://USERNAME.github.io/project4_cointegration_energy/) | Financial Econometrics | Engle-Granger, Johansen, VECM, IRF | Python |
-| 5 | [Market Reaction to ESG Rating Changes](https://USERNAME.github.io/project5_event_study_esg/) | Financial Econometrics | Market model, CAR, cross-sectional t-test | Python, Stata |
-| 6 | [ESG Rating Disagreement Dashboard](https://USERNAME.github.io/project6_esg_disagreement/) | Sustainability Analytics | Kendall's τ, pillar decomposition, heatmaps | Python, R |
-| 7 | [Climate Risk Disclosure NLP Analysis](https://USERNAME.github.io/project7_climate_nlp/) | Sustainability Analytics | Keyword dictionaries, TF-IDF, LDA | Python |
-| 8 | [Geospatial Climate Risk Mapping](https://USERNAME.github.io/project8_geospatial_climate/) | Sustainability Analytics | Spatial joins, folium mapping, risk scoring | Python, R |
-| 9 | [Corporate Water Stress Financial Analysis](https://USERNAME.github.io/project9_water_stress/) | Sustainability Analytics | Risk scoring, sector benchmarking, scenarios | Python, R |
-| 10 | [Corporate Biodiversity Footprint Assessment](https://USERNAME.github.io/project10_biodiversity_footprint/) | Sustainability Analytics | TNFD LEAP, ENCORE, MSA metrics | Python, R |
-| 11 | [Green Bond Premium (Greenium) Analysis](https://USERNAME.github.io/project11_green_bond_premium/) | Financial Analytics | Matched pairs, paired t-test, panel regression | Python, R |
-| 12 | [Green Lending Regulation Impact](https://USERNAME.github.io/project12_bank_lending_did/) | Financial Analytics | Difference-in-differences, triple difference | Python, Stata |
-| 13 | [Sovereign ESG and Bond Spreads](https://USERNAME.github.io/project13_sovereign_esg/) | Financial Analytics | Panel FE, Driscoll-Kraay SEs, pillar decomposition | Python, R |
-| 14 | [Global Climate Finance Flow Analysis](https://USERNAME.github.io/project14_climate_finance_flows/) | Financial Analytics | Flow decomposition, gap analysis, mobilisation ratios | Python, R |
-| 15 | [Impact Investing Portfolio Optimisation](https://USERNAME.github.io/project15_impact_investing/) | Financial Analytics | Markowitz MVO, impact constraints, Sharpe comparison | Python, R |
-| 16 | [ESG Controversy Event Prediction](https://USERNAME.github.io/project16_esg_controversy/) | Sustainable Finance Analytics | XGBoost, Random Forest, SHAP importance | Python |
-| 17 | [Central Bank Climate Communication](https://USERNAME.github.io/project17_central_bank_nlp/) | Sustainable Finance Analytics | Structural topic model (STM), sentiment analysis | Python, R |
-| 18 | [Stranded Assets Valuation](https://USERNAME.github.io/project18_stranded_assets/) | Sustainable Finance Analytics | Monte Carlo simulation, NGFS scenarios, VaR | Python, R |
-| 19 | [Carbon Risk Factor Replication](https://USERNAME.github.io/project19_carbon_risk_replication/) | Sustainable Finance Analytics | Fama-MacBeth two-pass, Newey-West correction | Python, Stata, R |
-| 20 | [Reproducible Research Template](https://USERNAME.github.io/project20_reproducible_research/) | Research Methods | Makefile automation, FAIR data, version control | Python, R, Stata |
+| 1 | [Volatility Dynamics of Green vs Brown Assets](https://alfredbimha.github.io/project1_volatility_green_brown/) | Financial Econometrics | GARCH(1,1), GJR-GARCH, rolling forecasts | Python, R |
+| 2 | [ESG Scores and Financial Performance](https://alfredbimha.github.io/project2_esg_panel_regression/) | Financial Econometrics | Panel FE/RE, Hausman test, clustered SEs | Python, Stata, R |
+| 3 | [Green Factor Premium Analysis](https://alfredbimha.github.io/project3_fama_french_green/) | Financial Econometrics | Fama-French 3 & 5-factor, GRS test | Python, R |
+| 4 | [Cointegration of Clean & Fossil Energy](https://alfredbimha.github.io/project4_cointegration_energy/) | Financial Econometrics | Engle-Granger, Johansen, VECM, IRF | Python |
+| 5 | [Market Reaction to ESG Rating Changes](https://alfredbimha.github.io/project5_event_study_esg/) | Financial Econometrics | Market model, CAR, cross-sectional t-test | Python, Stata |
+| 6 | [ESG Rating Disagreement Dashboard](https://alfredbimha.github.io/project6_esg_disagreement/) | Sustainability Analytics | Kendall's τ, pillar decomposition, heatmaps | Python, R |
+| 7 | [Climate Risk Disclosure NLP Analysis](https://alfredbimha.github.io/project7_climate_nlp/) | Sustainability Analytics | Keyword dictionaries, TF-IDF, LDA | Python |
+| 8 | [Geospatial Climate Risk Mapping](https://alfredbimha.github.io/project8_geospatial_climate/) | Sustainability Analytics | Spatial joins, folium mapping, risk scoring | Python, R |
+| 9 | [Corporate Water Stress Financial Analysis](https://alfredbimha.github.io/project9_water_stress/) | Sustainability Analytics | Risk scoring, sector benchmarking, scenarios | Python, R |
+| 10 | [Corporate Biodiversity Footprint Assessment](https://alfredbimha.github.io/project10_biodiversity_footprint/) | Sustainability Analytics | TNFD LEAP, ENCORE, MSA metrics | Python, R |
+| 11 | [Green Bond Premium (Greenium) Analysis](https://alfredbimha.github.io/project11_green_bond_premium/) | Financial Analytics | Matched pairs, paired t-test, panel regression | Python, R |
+| 12 | [Green Lending Regulation Impact](https://alfredbimha.github.io/project12_bank_lending_did/) | Financial Analytics | Difference-in-differences, triple difference | Python, Stata |
+| 13 | [Sovereign ESG and Bond Spreads](https://alfredbimha.github.io/project13_sovereign_esg/) | Financial Analytics | Panel FE, Driscoll-Kraay SEs, pillar decomposition | Python, R |
+| 14 | [Global Climate Finance Flow Analysis](https://alfredbimha.github.io/project14_climate_finance_flows/) | Financial Analytics | Flow decomposition, gap analysis, mobilisation ratios | Python, R |
+| 15 | [Impact Investing Portfolio Optimisation](https://alfredbimha.github.io/project15_impact_investing/) | Financial Analytics | Markowitz MVO, impact constraints, Sharpe comparison | Python, R |
+| 16 | [ESG Controversy Event Prediction](https://alfredbimha.github.io/project16_esg_controversy/) | Sustainable Finance Analytics | XGBoost, Random Forest, SHAP importance | Python |
+| 17 | [Central Bank Climate Communication](https://alfredbimha.github.io/project17_central_bank_nlp/) | Sustainable Finance Analytics | Structural topic model (STM), sentiment analysis | Python, R |
+| 18 | [Stranded Assets Valuation](https://alfredbimha.github.io/project18_stranded_assets/) | Sustainable Finance Analytics | Monte Carlo simulation, NGFS scenarios, VaR | Python, R |
+| 19 | [Carbon Risk Factor Replication](https://alfredbimha.github.io/project19_carbon_risk_replication/) | Sustainable Finance Analytics | Fama-MacBeth two-pass, Newey-West correction | Python, Stata, R |
+| 20 | [Reproducible Research Template](https://alfredbimha.github.io/project20_reproducible_research/) | Research Methods | Makefile automation, FAIR data, version control | Python, R, Stata |
 
 ---
 
@@ -117,4 +117,4 @@ project_name/
 
 ## Contact
 
-Alfred Bimha · alfredbimha@outlook.com · (https://www.linkedin.com/in/alfredbimha/)
+[Your Name] · [Your Email] · [Your LinkedIn]
