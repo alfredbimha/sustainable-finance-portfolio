@@ -117,4 +117,4 @@ project_name/
 
 ## Contact
 
-[Your Name] · [Your Email] · [Your LinkedIn]
+Alfred Bimha · alfredbimha@outlook.com · (https://www.linkedin.com/in/alfredbimha/)
