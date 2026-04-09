@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainable Finance Research Portfolio</title>
+    <meta name="description" content="A 20-project research portfolio in sustainable finance, financial econometrics, and ESG analytics — built with Python, R, and Stata.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400&display=swap');
+
+        :root {
+            --ink: #0a0f1a;
+            --body: #3b3f4a;
+            --muted: #6b7084;
+            --light: #9ea2b3;
+            --border: #e0e2ea;
+            --bg: #f6f7fa;
+            --card-bg: #ffffff;
+            --accent: #1a6b52;
+            --accent-light: #e8f5f0;
+            --warm: #c2956a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            line-height: 1.7;
+            color: var(--body);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            background: var(--ink);
+            color: #ffffff;
+            padding: 100px 32px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 80%, rgba(26,107,82,0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(194,149,106,0.08) 0%, transparent 50%);
+        }
+        .hero::after {
+            content: '';
+            position: absolute; inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h60v60H0z' fill='none'/%3E%3Cpath d='M30 0v60M0 30h60' stroke='%23ffffff' stroke-opacity='0.02' stroke-width='1'/%3E%3C/svg%3E");
+            opacity: 0.6;
+        }
+        .hero-inner {
+            position: relative; z-index: 1;
+            max-width: 860px; margin: 0 auto;
+            text-align: center;
+        }
+        .hero-eyebrow {
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--warm);
+            margin-bottom: 24px;
+        }
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+            font-weight: 600;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+        .hero-sub {
+            font-size: 1.12rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.72);
+            max-width: 620px;
+            margin: 0 auto 36px;
+        }
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+        .hero-stat {
+            text-align: center;
+        }
+        .hero-stat-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--warm);
+            line-height: 1;
+        }
+        .hero-stat-label {
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            margin-top: 4px;
+        }
+
+        /* ── ABOUT STRIP ── */
+        .about {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 40px 32px;
+        }
+        .about-inner {
+            max-width: 860px;
+            margin: 0 auto;
+            display: flex;
+            gap: 32px;
+            align-items: flex-start;
+        }
+        .about-label {
+            flex-shrink: 0;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--accent);
+            padding-top: 4px;
+            width: 100px;
+        }
+        .about-text {
+            font-size: 0.98rem;
+            color: var(--body);
+            line-height: 1.8;
+        }
+        .about-text strong { color: var(--ink); }
+
+        /* ── CATEGORY SECTIONS ── */
+        .section {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 56px 24px 0;
+        }
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+            margin-bottom: 28px;
+            border-bottom: 2px solid var(--ink);
+            padding-bottom: 12px;
+        }
+        .section-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--warm);
+        }
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--ink);
+        }
+        .section-count {
+            margin-left: auto;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--muted);
+            letter-spacing: 0.5px;
+        }
+
+        /* ── PROJECT CARDS ── */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 28px 30px;
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.25s ease;
+            position: relative;
+        }
+        .project-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 6px 24px rgba(26,107,82,0.08);
+            transform: translateY(-2px);
+        }
+        .project-num {
+            flex-shrink: 0;
+            width: 44px; height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        .project-body { flex: 1; min-width: 0; }
+        .project-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+        .project-desc {
+            font-size: 0.88rem;
+            color: var(--muted);
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .tag {
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 4px;
+            background: var(--bg);
+            color: var(--muted);
+            letter-spacing: 0.3px;
+        }
+        .tag.lang {
+            background: var(--accent-light);
+            color: var(--accent);
+        }
+        .project-arrow {
+            flex-shrink: 0;
+            color: var(--border);
+            font-size: 1.2rem;
+            align-self: center;
+            transition: color 0.2s;
+        }
+        .project-card:hover .project-arrow { color: var(--accent); }
+
+        /* ── SKILLS SECTION ── */
+        .skills-section {
+            max-width: 960px;
+            margin: 56px auto 0;
+            padding: 0 24px;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+        }
+        .skill-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 24px;
+        }
+        .skill-cat {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--warm);
+            margin-bottom: 12px;
+        }
+        .skill-list {
+            list-style: none;
+            padding: 0;
+        }
+        .skill-list li {
+            font-size: 0.88rem;
+            color: var(--body);
+            padding: 3px 0;
+        }
+
+        /* ── METHODOLOGY NOTE ── */
+        .method-note {
+            max-width: 960px;
+            margin: 48px auto 0;
+            padding: 0 24px;
+        }
+        .method-card {
+            background: linear-gradient(135deg, #fafaf8, #f4f3ef);
+            border: 1px solid #e8e5dc;
+            border-radius: 10px;
+            padding: 32px;
+        }
+        .method-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 10px;
+        }
+        .method-card p {
+            font-size: 0.92rem;
+            color: var(--body);
+            line-height: 1.8;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            max-width: 960px;
+            margin: 56px auto 0;
+            padding: 32px 24px 48px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.82rem;
+            color: var(--muted);
+        }
+        footer a { color: var(--accent); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+
+        /* ── ANIMATIONS ── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-inner { animation: fadeUp 0.8s ease-out; }
+        .project-card {
+            animation: fadeUp 0.5s ease-out backwards;
+        }
+        .project-card:nth-child(1) { animation-delay: 0.05s; }
+        .project-card:nth-child(2) { animation-delay: 0.1s; }
+        .project-card:nth-child(3) { animation-delay: 0.15s; }
+        .project-card:nth-child(4) { animation-delay: 0.2s; }
+        .project-card:nth-child(5) { animation-delay: 0.25s; }
+
+        @media (max-width: 640px) {
+            .hero { padding: 64px 20px 56px; }
+            .hero-stats { gap: 28px; }
+            .about-inner { flex-direction: column; gap: 12px; }
+            .about-label { width: auto; }
+            .project-card { flex-direction: column; gap: 12px; }
+            .project-num { width: 36px; height: 36px; font-size: 1rem; }
+            .project-arrow { display: none; }
+            .skills-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ════════ HERO ════════ -->
+<div class="hero">
+    <div class="hero-inner">
+        <div class="hero-eyebrow">Research Portfolio</div>
+        <h1>Sustainable Finance<br>& Financial Analytics</h1>
+        <p class="hero-sub">A 20-project portfolio spanning financial econometrics, ESG analytics, climate risk, and sustainable finance — built with Python, R, and Stata using real-world data.</p>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="hero-stat-num">20</div>
+                <div class="hero-stat-label">Projects</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-num">3</div>
+                <div class="hero-stat-label">Languages</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-num">12+</div>
+                <div class="hero-stat-label">Methods</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-num">5</div>
+                <div class="hero-stat-label">Data APIs</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ════════ ABOUT ════════ -->
+<div class="about">
+    <div class="about-inner">
+        <div class="about-label">About</div>
+        <div class="about-text">
+            This portfolio demonstrates applied research skills across <strong>financial econometrics</strong>, <strong>sustainability analytics</strong>, <strong>financial analytics</strong>, and <strong>sustainable finance</strong>. Each project follows a complete research workflow: formulating a research question, collecting and processing data, applying rigorous methodology, and interpreting results. Projects use real data from <strong>Yahoo Finance</strong>, <strong>SEC EDGAR</strong>, <strong>World Bank API</strong>, and <strong>CPI/OECD</strong> where available, with simulated data calibrated to published distributions for the remainder.
+        </div>
+    </div>
+</div>
+
+<!-- ════════ SECTION I: FINANCIAL ECONOMETRICS ════════ -->
+<div class="section">
+    <div class="section-header">
+        <span class="section-num">I</span>
+        <span class="section-title">Financial Econometrics</span>
+        <span class="section-count">5 projects</span>
+    </div>
+    <div class="projects-grid">
+
+        <a class="project-card" href="https://alfredbimha.github.io/green-brown-volatility-garch/" target="_blank">
+            <div class="project-num" style="background: #1b4332;">1</div>
+            <div class="project-body">
+                <div class="project-title">Volatility Dynamics of Green vs Brown Assets</div>
+                <div class="project-desc">GARCH(1,1) and GJR-GARCH modelling comparing conditional volatility of clean energy and fossil fuel ETFs using real Yahoo Finance data.</div>
+                <div class="project-tags">
+                    <span class="tag lang">Python</span>
+                    <span class="tag lang">R</span>
+                    <span class="tag">GARCH</span>
+                    <span class="tag">Time Series</span>
+                    <span class="tag">Yahoo Finance</span>
+                </div>
+            </div>
+            <div class="project-arrow">→</div>
+        </a>
+
+        <a class="project-card" href="https://alfredbimha.github.io/esg-firm-performance-panel-data/" target="_blank">
+            <div class="project-num" style="background: #1e3a5f;">2</div>
+            <div class="project-body">
+                <div class="project-title">ESG Scores and Financial Performance</div>
+                <div class="project-desc">Panel data regression with firm fixed effects testing the ESG–profitability relationship. Hausman test, clustered standard errors, pillar decomposition.</div>
+                <div class="project-tags">
+                    <span class="tag lang">Python</span>
+                    <span class="tag lang">Stata</span>
+                    <span class="tag lang">R</span>
+                    <span class="tag">Panel Data</span>
+                    <span class="tag">Fixed Effects</span>
+                </div>
+            </div>
+            <div class="project-arrow">→</div>
+        </a>
+
+        <a class="project-card" href="https://alfredbimha.github.io/fama-french-green-factor/" target="_blank">
+            <div class="project-num" style="background: #4a1942;">3</div>
+            <div class="project-body">
+                <div class="project-title">Green Factor Premium Analysis</div>
+                <div class="project-desc">Fama-French 3-factor and 5-factor regressions testing whether ESG funds generate alpha or replicate standard factor exposures. GRS joint test.</div>
+                <div class="project-tags">
+                    <span class="tag lang">Python</span>
+                    <span class="tag lang">R</span>
+                    <span class="tag">Asset Pricing</span>
+                    <span class="tag">Factor Models</span>
+                </div>
+            </div>
+            <div class="project-arrow">→</div>
+        </a>
+
+        <a class="project-card" href="https://alfredbimha.github.io/carbon-energy-cointegration-var/" target="_blank">
+            <div class="project-num" style="background: #7c2d12;">4</div>
+            <div class="project-body">
+                <div class="project-title">Cointegration of Clean &amp; Fossil Energy Markets</div>
+                <div class="project-desc">Engle-Granger and Johansen tests for long-run equilibrium, VECM estimation, and impulse response analysis using real ETF price data.</div>
+                <div class="project-tags">
+                    <span class="tag lang">Python</span>
+                    <span class="tag">Cointegration</span>
+                    <span class="tag">VECM</span>
+                    <span class="tag">Yahoo Finance</span>
+                </div>
+            </div>
+            <div class="project-arrow">→</div>
+        </a>
+
+        <a class="project-card" href="https://alfredbimha.github.io/climate-policy-event-study/" target="_blank">
+            <div class="project-num" style="background: #1e40af;">5</div>
+            <div class="project-body">
+                <div class="project-title">Market Reaction to ESG Rating Changes</div>
+                <div class="project-desc">Classical event study measuring abnormal returns around ESG upgrades and downgrades. Market model, CAR analysis, asymmetry testing.</div>
+                <div class="project-tags">
+                    <span class="tag lang">Python</span>
+                    <span class="tag lang">Stata</span>
+                    <span class="tag">Event Study</span>
+                    <span class="tag">Abnormal Returns</span>
+                </div>
+            </div>
+            <div class="project-arrow">→</div>
+        </a>
+
+    </div>
+</div>
+
+<!-- ════════ SECTION II: SUSTAINABILITY ANALYTICS ════════ -->
+<div class="section">
+    <div class="section-header">
+        <span class="section-num">II</span>
+        <span class="section-title">Sustainability Analytics</span>
+        <span class="section-count">5 projects</span>
+    </div>
+    <div class="projects-grid">
+
+        <a class="project-card" href="https://alfredbimha.github.io/esg-rating-disagreement-analysis/" target="_blank">
+            <div class="project-num" style="background: #7e22ce;">6</div>
+            <div class="project-body">
+                <div class="project-title">ESG Rating Disagreement Dashboard</div>
+                <div class="project-desc">Cross-provider ESG divergence analysis using rank correlation (Kendall's τ), pillar decomposition, and sector heatmap visualisation.</div>
+                <div class="project-tags">
+                    <span class="tag lang">Python</span>
+                    <span class="tag lang">R</span>
+                    <span class="tag">Correlation</span>
+                    <span class="tag">Visualisation</span>
+                </div>
+            </div>
+            <div class="project-arrow">→</div>
+        </a>
+
+        <a class="project-card" href="https://alfredbimha.github.io/climate-nlp-sec-10k-filings/" target="_blank">
+            <div class="project-num" style="background: #0e7490;">7</div>
+            <div class="project-body">
+                <div class="project-title">Climate Risk Disclosure NLP Analysis</div>
+                <div class="project-desc">Text mining SEC 10-K filings for climate language using keyword dictionaries, TF-IDF vectorisation, and LDA topic modelling. Real SEC EDGAR data.</div>
+                <div class="project-tags">
+                    <span class="tag lang">Python</span>
+                    <span class="tag">NLP</span>
+                    <span class="tag">Topic Modelling</span>
+                    <span class="tag">SEC EDGAR</span>
+                </div>
+            </div>
+            <div class="project-arrow">→</div>
+        </a>
+
+        <a class="project-card" href="https://alfredbimha.github.io/climate-risk-geospatial-mapping/" target="_blank">
+            <div class="project-num" style="background: #047857;">8</div>
+            <div class="project-body">
+                <div class="project-title">Geospatial Climate Risk Mapping</div>
+                <div class="project-desc">Spatial analysis mapping physical climate risks (flood, heat, sea-level rise) to financial asset locations using geopandas and folium.</div>
+                <div class="project-tags">
+                    <span class="tag lang">Python</span>
+                    <span class="tag lang">R</span>
+                    <span class="tag">Geospatial</span>
+                    <span class="tag">Climate Risk</span>
+                </div>
+            </div>
+            <div class="project-arrow">→</div>
+        </a>
+
+        <a class="project-card" href="https://alfredbimha.github.io/water-stress-commodity-prices/" target="_blank">
+            <div class="project-num" style="background: #0369a1;">9</div>
+            <div class="project-body">
+                <div class="project-title">Corporate Water Stress Financial Analysis</div>
+                <div class="project-desc">Water risk scoring combining corporate usage data with WRI Aqueduct stress indices. Sector benchmarking and forward-looking scenario analysis.</div>
+                <div class="project-tags">
+                    <span class="tag lang">Python</span>
+                    <span class="tag lang">R</span>
+                    <span class="tag">Risk Scoring</span>
+                    <span class="tag">Scenario Analysis</span>
+                </div>
+            </div>
+            <div class="project-arrow">→</div>
+        </a>
+
+        <a class="project-card" href="https://alfredbimha.github.io/biodiversity-risk-scoring/" target="_blank">
+            <div class="project-num" style="background: #166534;">10</div>
+            <div class="project-body">
+                <div class="project-title">Corporate Biodiversity Footprint Assessment</div>
+                <div class="project-desc">Nature-related financial risk using TNFD LEAP framework, ENCORE dependency mapping, and Mean Species Abundance impact metrics.</div>
+                <div class="project-tags">
+                    <span class="tag lang">Python</span>
+                    <span class="tag lang">R</span>
+                    <span class="tag">TNFD</span>
+                    <span class="tag">Biodiversity</span>
+                </div>
+            </div>
+            <div class="project-arrow">→</div>
+        </a>
+
+    </div>
+</div>
+
+<!-- ════════ SECTION III: FINANCIAL ANALYTICS ════════ -->
+<div class="section">
+    <div class="section-header">
+        <span class="section-num">III</span>
+        <span class="section-title">Financial Analytics</span>
+        <span class="section-count">5 projects</span>
+    </div>
+    <div class="projects-grid">
+
+        <a class="project-card" href="https://alfredbimha.github.io/green-bond-premium-greenium/" target="_blank">
+            <div class="project-num" style="background: #065f46;">11</div>
+            <div class="project-body">
+                <div class="project-title">Green Bond Premium (Greenium) Analysis</div>
+                <div class="project-desc">Matched-pair design testing whether green bonds trade at a yield discount. Paired t-tests, panel regression with issuer fixed effects.</div>
+                <div class="project-tags">
+                    <span class="tag lang">Python</span>
+                    <span class="tag lang">R</span>
+                    <span class="tag">Bond Pricing</span>
+                    <span class="tag">Matched Pairs</span>
+                </div>
+            </div>
+            <div class="project-arrow">→</div>
+        </a>
+
+        <a class="project-card" href="https://alfredbimha.github.io/bank-lending-transition-risk-did/" target="_blank">
+            <div class="project-num" style="background: #92400e;">12</div>
+            <div class="project-body">
+                <div class="project-title">Green Lending Regulation Impact</div>
+                <div class="project-desc">Difference-in-differences and triple-difference analysis of bank lending behaviour pre/post green regulation. Parallel trends validation.</div>
+                <div class="project-tags">
+                    <span class="tag lang">Python</span>
+                    <span class="tag lang">Stata</span>
+                    <span class="tag">DiD</span>
+                    <span class="tag">Causal Inference</span>
+                </div>
+            </div>
+            <div class="project-arrow">→</div>
+        </a>
+
+        <a class="project-card" href="https://alfredbimha.github.io/sovereign-esg-bond-spreads/" target="_blank">
+            <div class="project-num" style="background: #3730a3;">13</div>
+            <div class="project-body">
+                <div class="project-title">Sovereign ESG and Bond Spreads</div>
+                <div class="project-desc">Panel regression testing whether governance, environmental, and social indicators predict sovereign borrowing costs. Real World Bank API data.</div>
+                <div class="project-tags">
+                    <span class="tag lang">Python</span>
+                    <span class="tag lang">R</span>
+                    <span class="tag">Panel Data</span>
+                    <span class="tag">World Bank API</span>
+                </div>
+            </div>
+            <div class="project-arrow">→</div>
+        </a>
+
+        <a class="project-card" href="https://alfredbimha.github.io/climate-finance-flows-tracker/" target="_blank">
+            <div class="project-num" style="background: #115e59;">14</div>
+            <div class="project-body">
+                <div class="project-title">Global Climate Finance Flow Analysis</div>
+                <div class="project-desc">Tracking climate finance allocation against Paris-aligned benchmarks. Flow decomposition, gap analysis, mobilisation ratios. CPI/OECD/GCF data.</div>
+                <div class="project-tags">
+                    <span class="tag lang">Python</span>
+                    <span class="tag lang">R</span>
+                    <span class="tag">Climate Finance</span>
+                    <span class="tag">Gap Analysis</span>
+                </div>
+            </div>
+            <div class="project-arrow">→</div>
+        </a>
+
+        <a class="project-card" href="https://alfredbimha.github.io/impact-investing-returns-analysis/" target="_blank">
+            <div class="project-num" style="background: #86198f;">15</div>
+            <div class="project-body">
+                <div class="project-title">Impact Investing Portfolio Optimisation</div>
+                <div class="project-desc">Multi-objective Markowitz optimisation with impact constraints. Efficient frontier analysis, Sharpe ratio comparison. Real Yahoo Finance data.</div>
+                <div class="project-tags">
+                    <span class="tag lang">Python</span>
+                    <span class="tag lang">R</span>
+                    <span class="tag">Portfolio Optimisation</span>
+                    <span class="tag">Yahoo Finance</span>
+                </div>
+            </div>
+            <div class="project-arrow">→</div>
+        </a>
+
+    </div>
+</div>
+
+<!-- ════════ SECTION IV: SUSTAINABLE FINANCE ANALYTICS ════════ -->
+<div class="section">
+    <div class="section-header">
+        <span class="section-num">IV</span>
+        <span class="section-title">Sustainable Finance Analytics</span>
+        <span class="section-count">5 projects</span>
+    </div>
+    <div class="projects-grid">
+
+        <a class="project-card" href="https://alfredbimha.github.io/esg-controversy-prediction-ml/" target="_blank">
+            <div class="project-num" style="background: #9f1239;">16</div>
+            <div class="project-body">
+                <div class="project-title">ESG Controversy Event Prediction</div>
+                <div class="project-desc">XGBoost, Random Forest, and Logistic Regression for predicting corporate ESG controversies. SHAP feature importance and model comparison.</div>
+                <div class="project-tags">
+                    <span class="tag lang">Python</span>
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">XGBoost</span>
+                    <span class="tag">SHAP</span>
+                </div>
+            </div>
+            <div class="project-arrow">→</div>
+        </a>
+
+        <a class="project-card" href="https://alfredbimha.github.io/central-bank-climate-nlp/" target="_blank">
+            <div class="project-num" style="background: #292524;">17</div>
+            <div class="project-body">
+                <div class="project-title">Central Bank Climate Communication Analysis</div>
+                <div class="project-desc">Structural topic modelling and sentiment analysis of central bank speeches tracking the evolution of climate risk language in monetary policy.</div>
+                <div class="project-tags">
+                    <span class="tag lang">Python</span>
+                    <span class="tag lang">R</span>
+                    <span class="tag">NLP</span>
+                    <span class="tag">Topic Modelling</span>
+                </div>
+            </div>
+            <div class="project-arrow">→</div>
+        </a>
+
+        <a class="project-card" href="https://alfredbimha.github.io/stranded-assets-monte-carlo/" target="_blank">
+            <div class="project-num" style="background: #854d0e;">18</div>
+            <div class="project-body">
+                <div class="project-title">Stranded Assets Valuation Under Climate Scenarios</div>
+                <div class="project-desc">Monte Carlo simulation of fossil fuel asset impairment under NGFS scenarios (Hot House, Middle Road, Net Zero). VaR and CVaR analysis.</div>
+                <div class="project-tags">
+                    <span class="tag lang">Python</span>
+                    <span class="tag lang">R</span>
+                    <span class="tag">Monte Carlo</span>
+                    <span class="tag">NGFS Scenarios</span>
+                </div>
+            </div>
+            <div class="project-arrow">→</div>
+        </a>
+
+        <a class="project-card" href="https://alfredbimha.github.io/carbon-risk-premium-fama-macbeth/" target="_blank">
+            <div class="project-num" style="background: #334155;">19</div>
+            <div class="project-body">
+                <div class="project-title">Carbon Risk Factor Replication Study</div>
+                <div class="project-desc">Replicating the academic carbon premium using Fama-MacBeth two-pass regressions with Newey-West corrected standard errors.</div>
+                <div class="project-tags">
+                    <span class="tag lang">Python</span>
+                    <span class="tag lang">Stata</span>
+                    <span class="tag lang">R</span>
+                    <span class="tag">Asset Pricing</span>
+                    <span class="tag">Replication</span>
+                </div>
+            </div>
+            <div class="project-arrow">→</div>
+        </a>
+
+        <a class="project-card" href="https://alfredbimha.github.io/reproducible-research-template/" target="_blank">
+            <div class="project-num" style="background: #1e293b;">20</div>
+            <div class="project-body">
+                <div class="project-title">Reproducible Research Template</div>
+                <div class="project-desc">Meta-project establishing best practices: Makefile automation, version control, FAIR data principles, dependency management, and documentation standards.</div>
+                <div class="project-tags">
+                    <span class="tag lang">Python</span>
+                    <span class="tag lang">R</span>
+                    <span class="tag lang">Stata</span>
+                    <span class="tag">Reproducibility</span>
+                    <span class="tag">FAIR</span>
+                </div>
+            </div>
+            <div class="project-arrow">→</div>
+        </a>
+
+    </div>
+</div>
+
+<!-- ════════ SKILLS ════════ -->
+<div class="skills-section">
+    <div class="section-header">
+        <span class="section-num">V</span>
+        <span class="section-title">Technical Skills Demonstrated</span>
+    </div>
+    <div class="skills-grid">
+        <div class="skill-card">
+            <div class="skill-cat">Languages</div>
+            <ul class="skill-list">
+                <li>Python (pandas, numpy, scipy)</li>
+                <li>R (plm, stm, ggplot2)</li>
+                <li>Stata (xtreg, did)</li>
+                <li>SQL fundamentals</li>
+            </ul>
+        </div>
+        <div class="skill-card">
+            <div class="skill-cat">Econometrics</div>
+            <ul class="skill-list">
+                <li>GARCH &amp; GJR-GARCH</li>
+                <li>Panel FE/RE &amp; Hausman</li>
+                <li>Cointegration &amp; VECM</li>
+                <li>Fama-MacBeth &amp; DiD</li>
+            </ul>
+        </div>
+        <div class="skill-card">
+            <div class="skill-cat">Analytics</div>
+            <ul class="skill-list">
+                <li>NLP &amp; Topic Modelling</li>
+                <li>XGBoost &amp; SHAP</li>
+                <li>Monte Carlo Simulation</li>
+                <li>Portfolio Optimisation</li>
+            </ul>
+        </div>
+        <div class="skill-card">
+            <div class="skill-cat">Data &amp; APIs</div>
+            <ul class="skill-list">
+                <li>Yahoo Finance (yfinance)</li>
+                <li>SEC EDGAR API</li>
+                <li>World Bank (wbgapi)</li>
+                <li>CPI / OECD / GCF</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- ════════ METHODOLOGY NOTE ════════ -->
+<div class="method-note">
+    <div class="method-card">
+        <h3>A Note on Methodology</h3>
+        <p>This portfolio uses an <strong>AI-assisted research workflow</strong>. All research questions, methodological choices, and result interpretations are directed by the researcher. Code implementation is assisted by Claude AI — reflecting a modern, collaborative approach to data-intensive research. Using AI as a coding collaborator is an increasingly valued skill in finance and academia, enabling researchers to focus on the analytical thinking that matters most while maintaining full transparency about the workflow.</p>
+    </div>
+</div>
+
+<!-- ════════ FOOTER ════════ -->
+<footer>
+    <p>Sustainable Finance Research Portfolio · 20 Projects · Python, R &amp; Stata</p>
+    <p style="margin-top: 6px;">
+        <a href="https://github.com/alfredbimha">GitHub</a> ·
+        <a href="https://linkedin.com/in/alfredbimha">LinkedIn</a>
+    </p>
+</footer>
+
+</body>
+</html>
