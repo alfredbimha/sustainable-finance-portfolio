@@ -1,120 +1,91 @@
 # Sustainable Finance Research Portfolio
 
-A 20-project research portfolio in sustainable finance, financial econometrics, and ESG analytics — built with Python, R, and Stata using real-world financial data.
+A comprehensive 20-project research portfolio demonstrating proficiency in Python, R, and Stata for financial econometrics, sustainability analytics, and sustainable finance research.
 
-Each project follows a complete research workflow: formulating a research question, collecting and processing data, applying rigorous econometric or analytical methods, and interpreting results with methodological caveats.
+## Author
+Alfred Bimha — 
 
 ---
 
 ## Portfolio Overview
 
-| # | Project | Category | Methods | Languages |
-|---|---------|----------|---------|-----------|
-| 1 | [Volatility Dynamics of Green vs Brown Assets](https://alfredbimha.github.io/project1_volatility_green_brown/) | Financial Econometrics | GARCH(1,1), GJR-GARCH, rolling forecasts | Python, R |
-| 2 | [ESG Scores and Financial Performance](https://alfredbimha.github.io/project2_esg_panel_regression/) | Financial Econometrics | Panel FE/RE, Hausman test, clustered SEs | Python, Stata, R |
-| 3 | [Green Factor Premium Analysis](https://alfredbimha.github.io/project3_fama_french_green/) | Financial Econometrics | Fama-French 3 & 5-factor, GRS test | Python, R |
-| 4 | [Cointegration of Clean & Fossil Energy](https://alfredbimha.github.io/project4_cointegration_energy/) | Financial Econometrics | Engle-Granger, Johansen, VECM, IRF | Python |
-| 5 | [Market Reaction to ESG Rating Changes](https://alfredbimha.github.io/project5_event_study_esg/) | Financial Econometrics | Market model, CAR, cross-sectional t-test | Python, Stata |
-| 6 | [ESG Rating Disagreement Dashboard](https://alfredbimha.github.io/project6_esg_disagreement/) | Sustainability Analytics | Kendall's τ, pillar decomposition, heatmaps | Python, R |
-| 7 | [Climate Risk Disclosure NLP Analysis](https://alfredbimha.github.io/project7_climate_nlp/) | Sustainability Analytics | Keyword dictionaries, TF-IDF, LDA | Python |
-| 8 | [Geospatial Climate Risk Mapping](https://alfredbimha.github.io/project8_geospatial_climate/) | Sustainability Analytics | Spatial joins, folium mapping, risk scoring | Python, R |
-| 9 | [Corporate Water Stress Financial Analysis](https://alfredbimha.github.io/project9_water_stress/) | Sustainability Analytics | Risk scoring, sector benchmarking, scenarios | Python, R |
-| 10 | [Corporate Biodiversity Footprint Assessment](https://alfredbimha.github.io/project10_biodiversity_footprint/) | Sustainability Analytics | TNFD LEAP, ENCORE, MSA metrics | Python, R |
-| 11 | [Green Bond Premium (Greenium) Analysis](https://alfredbimha.github.io/project11_green_bond_premium/) | Financial Analytics | Matched pairs, paired t-test, panel regression | Python, R |
-| 12 | [Green Lending Regulation Impact](https://alfredbimha.github.io/project12_bank_lending_did/) | Financial Analytics | Difference-in-differences, triple difference | Python, Stata |
-| 13 | [Sovereign ESG and Bond Spreads](https://alfredbimha.github.io/project13_sovereign_esg/) | Financial Analytics | Panel FE, Driscoll-Kraay SEs, pillar decomposition | Python, R |
-| 14 | [Global Climate Finance Flow Analysis](https://alfredbimha.github.io/project14_climate_finance_flows/) | Financial Analytics | Flow decomposition, gap analysis, mobilisation ratios | Python, R |
-| 15 | [Impact Investing Portfolio Optimisation](https://alfredbimha.github.io/project15_impact_investing/) | Financial Analytics | Markowitz MVO, impact constraints, Sharpe comparison | Python, R |
-| 16 | [ESG Controversy Event Prediction](https://alfredbimha.github.io/project16_esg_controversy/) | Sustainable Finance Analytics | XGBoost, Random Forest, SHAP importance | Python |
-| 17 | [Central Bank Climate Communication](https://alfredbimha.github.io/project17_central_bank_nlp/) | Sustainable Finance Analytics | Structural topic model (STM), sentiment analysis | Python, R |
-| 18 | [Stranded Assets Valuation](https://alfredbimha.github.io/project18_stranded_assets/) | Sustainable Finance Analytics | Monte Carlo simulation, NGFS scenarios, VaR | Python, R |
-| 19 | [Carbon Risk Factor Replication](https://alfredbimha.github.io/project19_carbon_risk_replication/) | Sustainable Finance Analytics | Fama-MacBeth two-pass, Newey-West correction | Python, Stata, R |
-| 20 | [Reproducible Research Template](https://alfredbimha.github.io/project20_reproducible_research/) | Research Methods | Makefile automation, FAIR data, version control | Python, R, Stata |
+### A. Financial Econometrics
+| # | Project | Methods | Data |
+|---|---------|---------|------|
+| 1 | [Green vs Brown Volatility (GARCH)](https://github.com/alfredbimha/green-brown-volatility-garch) | GARCH, EGARCH, GJR-GARCH | Yahoo Finance |
+| 3 | [Fama-French + Green Factor](https://github.com/alfredbimha/fama-french-green-factor) | Factor regressions, GRS test | Kenneth French Library |
+| 4 | [Carbon & Energy Cointegration](https://github.com/alfredbimha/carbon-energy-cointegration-var) | Johansen, VAR, Granger causality | Yahoo Finance |
+| 5 | [Climate Policy Event Study](https://github.com/alfredbimha/climate-policy-event-study) | Market model, CAR | Yahoo Finance |
+| 19 | [Carbon Risk Premium (B&K Replication)](https://github.com/alfredbimha/carbon-risk-premium-fama-macbeth) | Fama-MacBeth, portfolio sorts | Yahoo Finance |
+
+### B. Sustainability Analytics
+| # | Project | Methods | Data |
+|---|---------|---------|------|
+| 2 | [ESG & Firm Performance](https://github.com/alfredbimha/esg-firm-performance-panel-data) | Panel FE, Pooled OLS | Yahoo Finance |
+| 6 | [ESG Disagreement Analysis](https://github.com/alfredbimha/esg-rating-disagreement-analysis) | Cross-provider comparison | Simulated (Berg et al.) |
+| 7 | [Climate NLP on SEC Filings](https://github.com/alfredbimha/climate-nlp-sec-10k-filings) | TF-IDF, LDA, keyword density | SEC EDGAR |
+| 8 | [Climate Risk Geospatial](https://github.com/alfredbimha/climate-risk-geospatial-mapping) | Spatial analysis, risk scoring | NOAA, EPA |
+| 9 | [Water Stress & Commodities](https://github.com/alfredbimha/water-stress-commodity-prices) | Granger causality, time series | Yahoo Finance |
+| 10 | [Biodiversity Risk Score](https://github.com/alfredbimha/biodiversity-risk-scoring) | Composite index, PCA | ENCORE |
+| 16 | [ESG Controversy Prediction](https://github.com/alfredbimha/esg-controversy-prediction-ml) | Random Forest, SHAP | Simulated |
+| 17 | [Central Bank Climate NLP](https://github.com/alfredbimha/central-bank-climate-nlp) | Sentiment analysis | Fed speeches |
+
+### C. Sustainable Finance
+| # | Project | Methods | Data |
+|---|---------|---------|------|
+| 11 | [Green Bond Premium](https://github.com/alfredbimha/green-bond-premium-greenium) | PSM, yield spread | Simulated (calibrated) |
+| 12 | [Bank Lending & Transition Risk](https://github.com/alfredbimha/bank-lending-transition-risk-did) | Difference-in-differences | Simulated (ECB/BoE) |
+| 13 | [Sovereign ESG & Bond Spreads](https://github.com/alfredbimha/sovereign-esg-bond-spreads) | Panel FE | World Bank WGI |
+| 14 | [Climate Finance Dashboard](https://github.com/alfredbimha/climate-finance-flows-tracker) | Data pipeline, visualization | CPI, OECD, GCF |
+| 15 | [Impact Investing Returns](https://github.com/alfredbimha/impact-investing-returns-analysis) | Portfolio optimization | Yahoo Finance |
+| 18 | [Stranded Assets Monte Carlo](https://github.com/alfredbimha/stranded-assets-monte-carlo) | Monte Carlo, NGFS scenarios | Yahoo Finance, NGFS |
+
+### D. Research Infrastructure
+| # | Project | Methods | Data |
+|---|---------|---------|------|
+| 20 | [Reproducible Research Template](https://github.com/alfredbimha/reproducible-research-template) | Full pipeline, documentation | Yahoo Finance |
 
 ---
 
-## Category Breakdown
+## Skills Demonstrated
 
-### I. Financial Econometrics (Projects 1–5)
-
-Core time series and panel data methods applied to sustainable finance questions. These projects demonstrate proficiency in the standard econometric toolkit used in empirical finance research: volatility modelling (GARCH), panel regressions with fixed effects, asset pricing factor models, cointegration and error correction, and event study methodology.
-
-### II. Sustainability Analytics (Projects 6–10)
-
-Data science and analytics applied to environmental and social sustainability questions. These projects go beyond traditional finance to incorporate NLP text mining of corporate disclosures, geospatial climate risk analysis, water stress quantification, and biodiversity impact measurement using emerging frameworks like TNFD and ENCORE.
-
-### III. Financial Analytics (Projects 11–15)
-
-Quantitative analysis of sustainable finance instruments and markets. Projects cover green bond pricing (the "greenium"), causal inference for policy evaluation using difference-in-differences, sovereign ESG-spread modelling with World Bank data, climate finance flow tracking, and multi-objective portfolio optimisation for impact investing.
-
-### IV. Sustainable Finance Analytics (Projects 16–20)
-
-Advanced methods including machine learning, Monte Carlo simulation, and academic replication. Projects apply XGBoost with SHAP interpretability to ESG controversy prediction, structural topic modelling to central bank communications, stochastic simulation to stranded asset valuation under NGFS climate scenarios, and Fama-MacBeth regressions to replicate the carbon risk premium literature.
-
----
+| Skill | Projects |
+|-------|----------|
+| **Time Series Econometrics** | 1, 4, 9 |
+| **Panel Data Analysis** | 2, 12, 13 |
+| **Asset Pricing** | 3, 19 |
+| **Event Studies** | 5 |
+| **Natural Language Processing** | 7, 17 |
+| **Machine Learning** | 10, 16 |
+| **Monte Carlo Simulation** | 18 |
+| **Causal Inference (DID, PSM)** | 5, 11, 12 |
+| **Data Visualization / Dashboards** | 6, 8, 14, 20 |
+| **Portfolio Optimization** | 15 |
+| **Spatial / Geospatial Analysis** | 8 |
+| **Reproducible Research** | 20 |
 
 ## Data Sources
+- Yahoo Finance (free)
+- SEC EDGAR (free)
+- Kenneth French Data Library (free)
+- World Bank WGI (free)
+- Federal Reserve (free)
+- CPI / OECD / GCF (free)
+- NOAA / EPA (free)
+- ENCORE / IUCN (free)
 
-| Source | Access Method | Projects |
-|--------|--------------|----------|
-| Yahoo Finance | `yfinance` Python library | 1, 4, 15 |
-| SEC EDGAR | REST API with User-Agent header | 7 |
-| World Bank | `wbgapi` Python library | 13 |
-| CPI / OECD / GCF | Published datasets | 14 |
-| Kenneth French Library | `pandas-datareader` | 3 |
-| Simulated (calibrated) | Custom generation scripts | 2, 5, 6, 8–12, 16–19 |
+## Setup
+```bash
+# Clone any project
+git clone https://github.com/alfredbimha/green-brown-volatility-garch.git
+cd project1-garch-volatility
 
-Projects using simulated data are calibrated to match the distributional properties of published academic datasets (e.g., Refinitiv ESG, CRSP, Compustat). A data sourcing guide exists for converting remaining projects to real data.
+# Install dependencies
+pip install -r requirements.txt
 
----
-
-## Key Findings
-
-Selected results that can be cited and discussed:
-
-- **Energy vs clean energy cointegration**: ICLN and XLE are cointegrated at p = 0.03, confirming a shared long-run price equilibrium (Project 4)
-- **Climate disclosure intensity**: Energy sector averages ~39 climate keywords per SEC 10-K filing vs. near zero for tech companies (Project 7)
-- **Governance dominates sovereign spreads**: Governance improvements predict lower sovereign bond spreads at t = −2.28, while environmental metrics are not yet priced (Project 13)
-- **Impact investing performance**: Impact fund portfolios achieve a Sharpe ratio of ~0.42 vs ~0.36 for conventional benchmarks (Project 15)
-- **Carbon risk premium**: Estimated at 1.5–3.0% annually, consistent with Bolton & Kacperczyk (2021) (Project 19)
-- **Stranded asset risk**: Net Zero 2050 scenario implies 45–65% impairment of fossil fuel asset book value (Project 18)
-
----
-
-## Technical Environment
-
-**Languages:** Python (primary), R, Stata
-
-**Key Python packages:** pandas, numpy, scipy, statsmodels, linearmodels, arch, yfinance, scikit-learn, xgboost, shap, geopandas, folium, nltk, matplotlib, seaborn, plotly
-
-**Key R packages:** plm, stm, quanteda, ggplot2, fixest, PortfolioAnalytics, sf, tmap
-
-**Stata commands:** xtreg, xtset, hausman, coint, eventstudy, did_multiplegt
-
----
-
-## Methodology Note
-
-This portfolio uses an **AI-assisted research workflow**. All research questions, methodological choices, and result interpretations are directed by the researcher. Code implementation is assisted by Claude AI — reflecting a modern, collaborative approach to data-intensive research. This workflow is fully transparent and documented throughout the portfolio.
-
----
-
-## Repository Structure
-
-Each of the 20 project repositories contains:
-
-```
-project_name/
-├── index.html          # Visual research guide (viewable via GitHub Pages)
-├── main_analysis.py    # Primary analysis script (heavily commented)
-├── README.md           # Project-specific documentation
-├── requirements.txt    # Python dependencies
-├── data/               # Raw and processed data files
-└── output/             # Generated figures, tables, and results
+# Run
+python code/project1_garch_volatility.py
 ```
 
----
-
-## Contact
-
-[Your Name] · [Your Email] · [Your LinkedIn]
+## License
+MIT
